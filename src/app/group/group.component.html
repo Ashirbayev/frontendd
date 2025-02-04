@@ -1,0 +1,21 @@
+<h2>Group Management</h2>
+
+<div class="select-container">
+  <select [(ngModel)]="selectedSchoolId">
+    <option *ngFor="let school of schools" [value]="school.id">
+      {{ school.name }}
+    </option>
+  </select>
+</div>
+
+<div class="input-container">
+  <input [(ngModel)]="newGroupName" placeholder="Enter group name">
+  <button (click)="addGroup()">Add Group</button>
+</div>
+
+<ul class="groups-list">
+  <li *ngFor="let group of groups">
+    {{ group.name }}
+    <button (click)="deleteGroup(group.id)">Delete</button>
+  </li>
+</ul>

@@ -1,0 +1,13 @@
+<h2>School Management</h2>
+
+<div class="input-container">
+  <input [(ngModel)]="newSchoolName" placeholder="Enter school name">
+  <button (click)="addSchool()">Add School</button>
+</div>
+
+<ul class="schools-list">
+  <li *ngFor="let school of schools">
+    {{ school.name }}
+    <button (click)="deleteSchool(school.id)">Delete</button>
+  </li>
+</ul>

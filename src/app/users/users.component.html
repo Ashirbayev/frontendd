@@ -1,0 +1,58 @@
+<div class="container">
+  <!-- Навигационные вкладки для переключения между фильтром и добавлением -->
+  <div class="tabs">
+    <button [class.active]="isFilterActive" (click)="showFilter()">Фильтр</button>
+    <button [class.active]="!isFilterActive" (click)="showAddUser()">Добавить пользователя</button>
+  </div>
+
+  <!-- Блок фильтров -->
+  <div class="filters" *ngIf="isFilterActive">
+    <h2>Фильтр пользователей</h2>
+
+    <label>Имя пользователя:</label>
+    <input [(ngModel)]="userName" type="text" placeholder="Поиск по имени" />
+
+    <label>Возраст:</label>
+    <input [(ngModel)]="age" type="number" placeholder="Поиск по возрасту" />
+
+    <label>Школа:</label>
+    <select [(ngModel)]="schoolId">
+      <option *ngFor="let school of schools" [value]="school.id">{{ school.name }}</option>
+    </select>
+
+    <label>Группа:</label>
+    <select [(ngModel)]="groupId">
+      <option *ngFor="let group of groups" [value]="group.id">{{ group.name }}</option>
+    </select>
+
+    <button (click)="filterUsers()">Применить фильтр</button>
+  </div>
+
+  <!-- Блок добавления пользователя -->
+  <div class="add-user" *ngIf="!isFilterActive">
+    <h2>Добавить пользователя</h2>
+
+    <label>Имя пользователя:</label>
+    <input [(ngModel)]="newUserName" type="text" placeholder="Введите имя пользователя" />
+
+    <label>Возраст:</label>
+    <input [(ngModel)]="newUserAge" type="number" placeholder="Введите возраст" />
+
+    <label>Группа:</label>
+    <select [(ngModel)]="newUserGroupId">
+      <option *ngFor="let group of groups" [value]="group.id">{{ group.name }}</option>
+    </select>
+
+    <button (click)="addUser()">Добавить пользователя</button>
+  </div>
+
+  <!-- Блок списка пользователей -->
+  <div class="users-list">
+    <h2>Список пользователей</h2>
+    <ul>
+      <li *ngFor="let user of filteredUsers">
+        {{ user.name }} ({{ user.age }} лет) - {{ user.group?.name }} ({{ user.group?.school?.name }})
+      </li>
+    </ul>
+  </div>
+</div>
