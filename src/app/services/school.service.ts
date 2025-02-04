@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SchoolService {
-  private apiUrl = 'https://backendd-sfy2.onrender.com/api/schools'; // Адрес бэкенда
+  private apiUrlT = environment.apiUrl;
+  private apiUrl = `${this.apiUrlT}/api/schools`; // Адрес бэкенда
 
   constructor(private http: HttpClient) {}
 

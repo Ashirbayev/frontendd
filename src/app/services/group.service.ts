@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GroupService {
-  private apiUrl = 'https://backendd-sfy2.onrender.com/api/groups'; // Адрес бэкенда
+  private apiUrlT = environment.apiUrl;
+  private apiUrl = `${this.apiUrlT}/api/groups`; // Адрес бэкенда
 
   constructor(private http: HttpClient) {}
 

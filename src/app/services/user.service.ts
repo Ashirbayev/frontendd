@@ -1,4 +1,5 @@
 // В файле user.service.ts
+import { environment } from '../../environments/environment'; // Импортируешь конфиг
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -8,7 +9,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'https://backendd-sfy2.onrender.com/api/users'; // Замените на ваш реальный API
+  private apiUrlT = environment.apiUrl; // Используешь URL из конфигурации
+
+  private apiUrl = `${this.apiUrlT}/api/users`; // Замените на ваш реальный API
 
   constructor(private http: HttpClient) {}
 
