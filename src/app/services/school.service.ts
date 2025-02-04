@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class SchoolService {
-  private apiUrl = 'http://localhost:5000/api/schools'; // Адрес бэкенда
+  private apiUrl = 'https://backendd-sfy2.onrender.com/api/schools'; // Адрес бэкенда
 
   constructor(private http: HttpClient) {}
 

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:5000/api/users'; // Замените на ваш реальный API
+  private apiUrl = 'https://backendd-sfy2.onrender.com/api/users'; // Замените на ваш реальный API
 
   constructor(private http: HttpClient) {}
 

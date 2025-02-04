@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class GroupService {
-  private apiUrl = 'http://localhost:5000/api/groups'; // Адрес бэкенда
+  private apiUrl = 'https://backendd-sfy2.onrender.com/api/groups'; // Адрес бэкенда
 
   constructor(private http: HttpClient) {}
 
